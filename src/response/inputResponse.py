@@ -1,3 +1,5 @@
+import re
+
 from PyQt5 import QtCore
 
 """
@@ -14,7 +16,11 @@ class InputResponse(object):
     def getResponse(self, message):
         if message.isspace():
             return "你好!"
-        elif message == "几点了？":
+        elif re.match("^几点了*", message, re.I):
             return QtCore.QDateTime.currentDateTime().toString("yyyy-MM-dd HH:mm:ss")
+        elif re.match("^你叫什么名字*", message, re.I):
+            return "上月由良"
+        elif re.match("^晚安*", message, re.I):
+            return "えん、こんばんは"
         else:
             return "请重新输入"

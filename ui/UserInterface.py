@@ -3,6 +3,7 @@ from PyQt5.QtCore import QSize, Qt
 from PyQt5.QtGui import QPixmap, QBrush
 from PyQt5.QtWidgets import *
 
+from resources.values import ProjectValues
 from src.response.inputResponse import InputResponse
 import os
 
@@ -32,8 +33,8 @@ class InterfaceInput(QWidget):
 
     # 初始化view
     def initView(self):
-        self.setWindowTitle("生命浅沫")
-        self.resize(800, 600)
+        self.setWindowTitle(ProjectValues.PROJECT_NAME)
+        self.resize(1067, 600)
         self.addView()
         self.setWindowsBg()
 
